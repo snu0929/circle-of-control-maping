@@ -16,14 +16,14 @@ const PsychoeducationVideo = () => {
   };
 
   return (
-    <View >
-      <Text >
+    <View style={styles.container}>
+      <Text style={styles.description}>
         This video explains the Circle of Control concept.
       </Text>
       <Video
         ref={videoRef}
-      
-        source={{ uri: '' }} 
+        style={styles.video}
+        source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }} 
         useNativeControls
         resizeMode="contain"
         isLooping
@@ -36,15 +36,23 @@ const PsychoeducationVideo = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     padding: 16,
-//     marginTop:25
-//   },
-  
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+    marginTop: 35,
+  },
+  description: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  video: {
+    width: 320,
+    height: 180,
+  },
+});
 
 export default PsychoeducationVideo;
