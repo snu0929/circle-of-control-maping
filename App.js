@@ -1,26 +1,31 @@
-import React from 'react';
-import { StyleSheet, View,Text } from 'react-native';
-import PsychoeducationVideo from './src/components/PsychoeducationVideo'; // Ensure the path is correct
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import OverlappingCircles from './src/components/OverlappingCircles';
+import React, { useState } from 'react';
+import { StyleSheet, View, SafeAreaView, ScrollView, Platform } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import ActionPlan from './src/components/ActionPlan';
 
 export default function App() {
-  return (
-    // <GestureHandlerRootView>  
-    <View style={styles.container}>
-  
-    <OverlappingCircles/>
-    </View>
-    // </GestureHandlerRootView>
 
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+     
+          <ActionPlan/>
+        </ScrollView>
+      </GestureHandlerRootView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'android' ? 25 : 0, 
+  },
+  scrollContainer: {
+    padding: 5,
   },
 });
